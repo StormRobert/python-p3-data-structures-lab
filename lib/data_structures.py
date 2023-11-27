@@ -28,10 +28,16 @@ def print_spicy_foods(spicy_foods):
         print(f"{food['name']} ({food['cuisine']}) | Heat Level: {spicy_hot_emoji}")
 
 def get_spicy_food_by_cuisine(spicy_foods, cuisine):
-    pass
+    for food in spicy_foods:
+        if food['cuisine'].lower() == cuisine.lower():
+            return food
+    return None    
 
-def print_spiciest_foods(spicy_foods):
-    pass
+def print_spiciest_foods(spicy_foods, spicy_limits = 5):
+    for food in spicy_foods:
+        if food['heat_level'] > spicy_limits:
+            spicy_hot_emoji = "🌶" * food['heat_level']
+            print(f"{food['name']} ({food['cuisine']}) | Heat Level: {spicy_hot_emoji}")
 
 def get_average_heat_level(spicy_foods):
     pass
