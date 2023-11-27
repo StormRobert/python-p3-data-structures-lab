@@ -40,7 +40,15 @@ def print_spiciest_foods(spicy_foods, spicy_limits = 5):
             print(f"{food['name']} ({food['cuisine']}) | Heat Level: {spicy_hot_emoji}")
 
 def get_average_heat_level(spicy_foods):
-    pass
+    total_heat = sum(dish['heat_level'] for dish in spicy_foods)
+    num_dishes = len(spicy_foods)
+
+    if num_dishes > 0:
+        return total_heat // num_dishes
+    else:
+        return 0
 
 def create_spicy_food(spicy_foods, spicy_food):
-    pass
+    spicy_foods.append(spicy_food)
+    return spicy_foods
+
